@@ -1,0 +1,11 @@
+@mixin flex($direction: row, $align-items: center, $justify-content: center) {
+    display: flex;
+    flex-direction: $direction;
+    align-items: $align-items;
+    justify-content: $justify-content;
+}
+
+@mixin px($padding-x) {
+    padding-left: $padding-x;
+    padding-right: $padding-x
+}

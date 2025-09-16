@@ -1,0 +1,52 @@
+---
+import Translator from "../../lib/translator";
+import Header from "../../components/Header.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import type { Slug, Languages } from "../../lib/routes";
+import { slugMap, reverseSlugMap } from "../../lib/routes";
+
+const { lang, slug } = Astro.params as { lang: Languages; slug: Slug };
+const title = "Hadassa Medeiros";
+const translator = new Translator(lang);
+const otherLang = lang === "en" ? "es" : "en";
+const page = reverseSlugMap[slug];
+const otherSlug = "";
+// const otherSlug = slugMap[otherLang][page];
+
+export function getStaticPaths() {
+  return [
+    { params: { lang: "en", slug: "home" } },
+    { params: { lang: "es", slug: "home" } },
+  ];
+}
+---
+
+<BaseLayout
+  title={title}
+  lang={lang}
+  otherLang={otherLang}
+  slug={slug}
+  otherSlug={otherSlug}
+  ;
+>
+  <body>
+    <div class="section-a"></div>
+    <div class="section-b"></div>
+    <div class="section-c"></div>
+  </body>
+
+  <style lang="scss">
+    .section-a {
+      height: 500px;
+      background-color: antiquewhite;
+    }
+    .section-b {
+      height: 500px;
+      background-color: rgb(226, 207, 181);
+    }
+    .section-c {
+      height: 500px;
+      background-color: rgb(204, 206, 183);
+    }
+  </style>
+</BaseLayout>

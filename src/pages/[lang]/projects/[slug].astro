@@ -1,0 +1,47 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import Project from "../../../layouts/Project.astro";
+import { slugMap, reverseSlugMap } from "../../../lib/routes";
+import type { Languages, Page, Slug } from "../../../lib/routes";
+
+export function getStaticPaths() {
+  return [
+    { params: { lang: "en", slug: "" } },
+    { params: { lang: "es", slug: "" } },
+    { params: { lang: "en", slug: "revit-extension" } },
+    { params: { lang: "es", slug: "revit-extension" } },
+  ];
+}
+
+const { lang, slug } = Astro.params as { lang: Languages; slug: Slug };
+const otherLang = lang === "en" ? "es" : "en";
+const page = reverseSlugMap[slug];
+const otherSlug = slugMap[otherLang][page];
+---
+
+<BaseLayout
+  title="Hadassa Medeiros"
+  lang={lang}
+  slug={slug}
+  otherLang={otherLang}
+  otherSlug={otherSlug}
+>
+  <main class="project">
+    <h1 class="project__title">project_name</h1>
+    <p class="grid-content project__desc">
+      project_desc descs project_desc descs project_desc descs project_desc
+      descs
+    </p>
+    <ul class="grid-content project__info">
+      <li class="project__info--item">a</li>
+      <li class="project__info--item">b</li>
+    </ul>
+    <div class="grid-2 divider-x"></div>
+    <div class="grid-3 divider-x"></div>
+    <div class="grid-4 divider-x"></div>
+    <div class="grid-5 divider-x"></div>
+    <div class="grid-6 divider-y"></div>
+    <div class="grid-7 divider-y"></div>
+    <div class="grid-8 divider-y"></div>
+  </main>
+</BaseLayout>

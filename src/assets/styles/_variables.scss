@@ -1,0 +1,21 @@
+// Colors
+$color-base: #d7d3ce;
+$color-accent: #d8ff8f;
+$color-primary: #001d53;
+$color-secondary: #f0b1d3;
+
+// Typography
+$font-base: "Inter", sans-serif;
+$font-mono: "Abel", monospace;
+
+// Font sizes
+$font-size-base: 1rem;
+$font-size-xlg: calc($font-size-base * 4);
+$font-size-lg: calc($font-size-base * 2);
+$font-size-sm: calc($font-size-base * 0.875);
+
+// Spacing
+$spacing-base: 1rem;
+$spacing-s: calc($spacing-base * 0.5);
+$spacing-m: calc($spacing-base * 2);
+$spacing-l: calc($spacing-base * 4);

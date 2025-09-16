@@ -1,0 +1,52 @@
+---
+import "../../src/assets/styles/styles.css";
+import Header from "../components/Header.astro";
+import type { Languages, Page, Slug } from "../lib/routes";
+// import "haudacia-themed-ui/dist/haudacia-themed-ui.css";
+
+export interface Props {
+  title: string;
+  lang: Languages;
+  otherLang: Languages;
+  slug: Slug;
+  otherSlug: Slug;
+}
+
+const { title, otherLang, lang, slug, otherSlug } = Astro.props;
+---
+
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/my-notion-face-portrait.png" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Abel&family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Imbue:opsz,wght@10..100,100..900&family=Lekton:ital,wght@0,400;0,700;1,400&family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&family=Libre+Caslon+Display&family=Lora:ital,wght@0,400..700;1,400..700&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Rozha+One&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Victor+Mono:ital,wght@0,100..700;1,100..700&family=Xanh+Mono:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+    <title>{title}</title>
+  </head>
+  <body>
+    <Header
+      lang={lang}
+      otherLang={otherLang}
+      slug={slug}
+      otherSlug={otherSlug}
+      title={title}
+    />
+    <main>
+      <slot />
+    </main>
+  </body>
+</html>
+
+<style lang="scss">
+  a {
+    font-size: 16px;
+  }
+</style>
