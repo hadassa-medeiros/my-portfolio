@@ -9,13 +9,14 @@
   margin: 0;
   padding: 0;
 }
-
+a {
+  color: $color-primary;
+}
 html,
 body {
   width: 100vw;
   height: 100dvh;
   overflow: auto;
-  background: $color-base;
   display: flex;
   flex-direction: column;
   margin: 0 !important;
@@ -29,7 +30,12 @@ body {
   font-family: $font-base;
   // padding: $spacing-base;
 }
-
+h1,
+.title {
+  font-family: $font-mono;
+  letter-spacing: -3px;
+  font-size: 4em;
+}
 canvas {
   display: block;
   position: relative;
@@ -56,18 +62,29 @@ canvas .layer[data-filter] {
 }
 
 button {
-  background-color: $color-accent;
+  background-color: transparent;
   border-radius: 50px;
   box-shadow: 5px 5px $color-primary;
   border: 1px solid $color-primary;
   max-height: fit-content;
   @include px(2em);
+  text-wrap: nowrap;
+  font-family: $font-mono;
 
   &:hover {
-    background-color: $color-secondary;
+    background-color: $color-accent;
   }
 }
+.icons {
+  height: 2rem;
+}
+.icon {
+  height: 1em;
 
+  img {
+    height: 100%;
+  }
+}
 .whole-page-canvas {
   position: absolute;
   margin: 0;
@@ -108,6 +125,7 @@ header {
   ul {
     display: flex;
     justify-content: space-between;
+    padding: 2em;
   }
 }
 

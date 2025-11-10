@@ -1,7 +1,7 @@
 ---
 import Translator from "../lib/translator";
 
-const { lang, title, otherLang, otherSlug } = Astro.props;
+const { lang, aboutMe, otherLang, otherSlug } = Astro.props;
 const translator = new Translator(lang);
 ---
 
@@ -9,17 +9,21 @@ const translator = new Translator(lang);
   <nav>
     <p>{otherSlug}</p>
     <ul>
-      <a href={`/${lang}`}>{title}</a>
+      <button>
+        <a class="langSwitcher" href={`/${lang}`}>
+          {translator.t("ABOUT")}
+        </a>
+      </button>
       <button>
         <a class="langSwitcher" href={`/${otherLang}/${otherSlug}`}>
           {otherLang} | {lang}
         </a>
       </button>
-      <button>
+      <!-- <button>
         <a href={`/${lang}/projects`}>
           {translator.t("PROJECTS")}
         </a>
-      </button>
+      </button> -->
     </ul>
   </nav>
 </header>

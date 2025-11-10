@@ -30,23 +30,69 @@ export function getStaticPaths() {
   ;
 >
   <body>
-    <div class="section-a"></div>
-    <div class="section-b"></div>
-    <div class="section-c"></div>
+    <div class="grid-container">
+      <h1 class="title">Hadassa Medeiros</h1>
+      <div class="icons">
+        <a class="icon" href="https://linkedin.com/in/hadassamedeiros" target="_blank">
+        <img src="/src/assets/icons/lnkdn-icon.svg"/></a>
+        <a class="icon" href="https://github.com/hadassa-medeiros" target="_blank">
+        <img src="/src/assets/icons/github-icon.svg"/></a>
+      </div>
+      <div class="info">
+        <p>{translator.t("ABOUT_P1")}</p></div>
+      <div class="description">
+        <p>{translator.t("ABOUT_P2")}</p>
+        <p>{translator.t("ABOUT_P3")}</p>
+      </div>
+      <div class="bg-layer"></div>
+    </div>
   </body>
 
   <style lang="scss">
-    .section-a {
-      height: 500px;
-      background-color: antiquewhite;
+    .bg-layer {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      opacity: 0.4;
+      background: url("/src/assets/images/background-collage.png") center/cover no-repeat
     }
-    .section-b {
-      height: 500px;
-      background-color: rgb(226, 207, 181);
+  .grid-container {
+    height: 100dvh;
+    padding: 2em;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    justify-content: center;
+    // grid-template-areas: 
+    // "title . ."
+    // "icons . ."
+    // ". info info"
+    // "..."
+    // ". description .";
+    // grid-template-columns: repeat(3, 1fr);
+    // grid-template-rows: 50% auto auto auto;
+    row-gap: 1em
+  }
+  .icons {
+    grid-area: icons;
+  }
+  .description {
+    grid-area: description;
+    max-width: 500px
+  }
+  .info {
+    grid-area: info;
+  }
+  .title {
+    grid-area: title;
+
+    @media (max-width: 768px) {
+      font-size: 2em
     }
-    .section-c {
-      height: 500px;
-      background-color: rgb(204, 206, 183);
-    }
+    
+    // text-align: end;
+    // align-self: end;
+  }
   </style>
 </BaseLayout>

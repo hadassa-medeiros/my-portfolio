@@ -8,12 +8,15 @@
   padding: 0;
 }
 
+a {
+  color: #000000;
+}
+
 html,
 body {
   width: 100vw;
   height: 100dvh;
   overflow: auto;
-  background: #d7d3ce;
   display: flex;
   flex-direction: column;
   margin: 0 !important;
@@ -21,10 +24,17 @@ body {
 
 body {
   font-size: 1rem;
-  color: #001d53;
+  color: #000000;
   line-height: 1.5;
   text-align: center;
-  font-family: "Inter", sans-serif;
+  font-family: "Lora", sans-serif;
+}
+
+h1,
+.title {
+  font-family: "Jetbrains Mono", monospace;
+  letter-spacing: -3px;
+  font-size: 4em;
 }
 
 canvas {
@@ -53,17 +63,30 @@ canvas .layer[data-filter] {
 }
 
 button {
-  background-color: #d8ff8f;
+  background-color: transparent;
   border-radius: 50px;
-  box-shadow: 5px 5px #001d53;
-  border: 1px solid #001d53;
+  box-shadow: 5px 5px #000000;
+  border: 1px solid #000000;
   max-height: -moz-fit-content;
   max-height: fit-content;
   padding-left: 2em;
   padding-right: 2em;
+  text-wrap: nowrap;
+  font-family: "Jetbrains Mono", monospace;
 }
 button:hover {
-  background-color: #f0b1d3;
+  background-color: #d8ff8f;
+}
+
+.icons {
+  height: 2rem;
+}
+
+.icon {
+  height: 1em;
+}
+.icon img {
+  height: 100%;
 }
 
 .whole-page-canvas {
@@ -105,6 +128,7 @@ a {
 header ul {
   display: flex;
   justify-content: space-between;
+  padding: 2em;
 }
 
 header a {
