@@ -36,8 +36,9 @@ export function getStaticPaths() {
       <div class="icons">
         <a class="icon" href="https://linkedin.com/in/hadassamedeiros" target="_blank">
         <img src="/lnkdn-icon.svg"/></a>
-        <a class="icon" href="https://github.com/hadassa-medeiros" target="_blank">
-        <img src="/github-icon.svg"/></a>
+        <a class="repo-link" href="https://github.com/hadassa-medeiros" target="_blank">
+          {translator.t("REPOSITORY")}
+        </a>
       </div>
       <div class="info">
         <p>{translator.t("ABOUT_P1")}</p></div>
@@ -77,6 +78,16 @@ export function getStaticPaths() {
   }
   .icons {
     grid-area: icons;
+    display: flex;
+    align-items: center;
+    gap: 0.75em;
+  }
+  .repo-link {
+    font-family: "Lora", serif;
+  }
+  .repo-link:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
   }
   .description {
     grid-area: description;
