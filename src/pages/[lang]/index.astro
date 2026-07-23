@@ -29,7 +29,7 @@ export function getStaticPaths() {
   otherSlug={otherSlug}
 >
   <div class="grid-container">
-    <!-- <p class="description">Hadassa Medeiros</p> -->
+    <h1 class="title">{title}</h1>
     <div class="icons">
       <a
         class="repo-link"
@@ -60,11 +60,11 @@ export function getStaticPaths() {
       padding: 3em;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: auto 1fr;
+      grid-template-rows: 1fr auto auto;
       grid-template-areas:
         ".           .           ."
-        ".           .           description"
-        "icons       icons           .";
+        ".           title           title"
+        "icons       icons       .";
       row-gap: 1em;
       justify-items: start;
       text-align: left;
@@ -72,8 +72,10 @@ export function getStaticPaths() {
 
     .title {
       grid-area: title;
+      justify-self: end;
       @media (max-width: 768px) {
-        font-size: 2em;
+        font-size: clamp(1.4rem, 2.5vw, 2rem);
+        letter-spacing: -0.02em;
       }
     }
 
