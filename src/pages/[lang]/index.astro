@@ -8,7 +8,7 @@ import { slugMap, reverseSlugMap } from "../../lib/routes";
 const { lang, slug } = Astro.params as { lang: Languages; slug: Slug };
 const title = "Hadassa Medeiros";
 const translator = new Translator(lang);
-const otherLang = lang === "en" ? "es" : "en"; // TODO: morre quando o Header renderizar as 3 línguas
+const otherLang = lang === "en" ? "es" : "en";
 const page = reverseSlugMap[slug];
 const otherSlug = "";
 
