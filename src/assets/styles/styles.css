@@ -9,7 +9,7 @@
 }
 
 a {
-  color: #000000;
+  color: #d7d3ce;
 }
 
 html,
@@ -24,7 +24,8 @@ body {
 
 body {
   font-size: 1rem;
-  color: #000000;
+  background-color: #33050e;
+  color: #d7d3ce;
   line-height: 1.5;
   text-align: center;
   font-family: "Lora", sans-serif;

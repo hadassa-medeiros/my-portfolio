@@ -16,18 +16,18 @@ const langHref = (target: Languages) => {
 <header>
   <nav>
     <ul>
-      <button>
-        <a class="langSwitcher" href={`/${lang}`}>
+      <li>
+        <a class="nav-link" href={`/${lang}`}>
           {translator.t("ABOUT")}
         </a>
-      </button>
-      <button>
+      </li>
+      <li class="lang-switcher">
         {
           languages.map((target, i) => (
             <Fragment>
-              {i > 0 && <span aria-hidden="true"> | </span>}
+              {i > 0 && <span class="sep" aria-hidden="true"> | </span>}
               <a
-                class="langSwitcher"
+                class="nav-link"
                 href={langHref(target)}
                 aria-current={target === lang ? "page" : undefined}
               >
@@ -36,12 +36,29 @@ const langHref = (target: Languages) => {
             </Fragment>
           ))
         }
-      </button>
-      <!-- <button>
-        <a href={`/${lang}/projects`}>
+      </li>
+      <!-- <li>
+        <a class="nav-link" href={`/${lang}/projects`}>
           {translator.t("PROJECTS")}
         </a>
-      </button> -->
+      </li> -->
     </ul>
   </nav>
 </header>
+
+<style lang="scss">
+  .nav-link {
+    font-family: "Lora", serif;
+    letter-spacing: 0.02em;
+  }
+  .nav-link:hover {
+    opacity: 0.7;
+  }
+  .lang-switcher .nav-link[aria-current="page"] {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+  .sep {
+    opacity: 0.45;
+  }
+</style>

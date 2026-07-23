@@ -10,7 +10,7 @@
   padding: 0;
 }
 a {
-  color: $color-primary;
+  color: $color-base;
 }
 html,
 body {
@@ -24,7 +24,8 @@ body {
 
 body {
   font-size: $font-size-base;
-  color: $color-primary;
+  background-color: $color-bg;
+  color: $color-base;
   line-height: 1.5;
   text-align: center;
   font-family: $font-base;

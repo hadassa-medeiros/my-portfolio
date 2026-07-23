@@ -2,6 +2,7 @@ import type { Languages } from "./routes";
 type TranslationKeys =
   | "ABOUT"
   | "PROJECTS"
+  | "REPOSITORY"
   | "LOCATION"
   | "ABOUT_P1"
   | "ABOUT_P2"
@@ -23,6 +24,7 @@ class Translator {
     ca: {
       ABOUT: "sobre mi",
       PROJECTS: "projectes",
+      REPOSITORY: "repositori",
       ABOUT_P1: "desenvolupadora web full-stack (front-end focus)",
       LOCATION: "Barcelona, Spain",
       ABOUT_P2: "Desenvolupadora full stack, amb focus en front-end, consciència d'UX, formació acadèmica en Arquitectura i Urbanisme, especialitzada en l'stack MERN.",
@@ -38,6 +40,7 @@ class Translator {
     es: {
       ABOUT: "sobre mí",
       PROJECTS: "proyectos",
+      REPOSITORY: "repositorio",
       ABOUT_P1: "desarrolladora web full-stack (front-end focus)",
       LOCATION: "Barcelona, Spain",
       ABOUT_P2: "Full stack developer, front-end focus, UX awareness, academic background in Architecture and Urbanism, specialized in the MERN stack.",
@@ -53,6 +56,7 @@ class Translator {
     en: {
       ABOUT: "about me",
       PROJECTS: "projects",
+      REPOSITORY: "repository",
       ABOUT_P1: "full-stack web developer (front-end focus)",     LOCATION: "Barcelona, Spain",
       ABOUT_P2: "Desarrolladora full stack, con enfoque en front-end, conciencia de UX, formación académica en Arquitectura y Urbanismo, especializado en el stack MERN.",
       ABOUT_P3: "Me gusta que las cosas fluyan y sean sencillas.",
