@@ -14,23 +14,41 @@ a {
 }
 html,
 body {
-  width: 100vw;
-  height: 100dvh;
-  overflow: auto;
+  width: 100%;
+  min-height: 100dvh;
+  overflow-x: hidden;
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
   margin: 0 !important;
-}
-
-body {
   font-size: $font-size-base;
-  background-color: $color-bg;
+  background-color: $color-base;
   color: $color-base;
   line-height: 1.5;
   text-align: center;
   font-family: $font-base;
   // padding: $spacing-base;
 }
+
+body {
+  min-height: 100dvh;
+}
+
+main {
+  flex: 1 0 auto;
+  display: flex;
+  min-height: 0;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.1;
+  pointer-events: none;
+}
+
 h1,
 .title {
   font-family: $font-mono;

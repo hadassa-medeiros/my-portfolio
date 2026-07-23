@@ -8,10 +8,9 @@ import { slugMap, reverseSlugMap } from "../../lib/routes";
 const { lang, slug } = Astro.params as { lang: Languages; slug: Slug };
 const title = "Hadassa Medeiros";
 const translator = new Translator(lang);
-const otherLang = lang === "en" ? "es" : "en";
+const otherLang = lang === "en" ? "es" : "en"; // TODO: morre quando o Header renderizar as 3 línguas
 const page = reverseSlugMap[slug];
 const otherSlug = "";
-// const otherSlug = slugMap[otherLang][page];
 
 export function getStaticPaths() {
   return [
@@ -28,83 +27,77 @@ export function getStaticPaths() {
   otherLang={otherLang}
   slug={slug}
   otherSlug={otherSlug}
-  ;
 >
-  <body>
-    <div class="grid-container">
-      <h1 class="title">Hadassa Medeiros</h1>
-      <div class="icons">
-        <a class="icon" href="https://linkedin.com/in/hadassamedeiros" target="_blank">
-        <img src="/lnkdn-icon.svg"/></a>
-        <a class="repo-link" href="https://github.com/hadassa-medeiros" target="_blank">
-          {translator.t("REPOSITORY")}
-        </a>
-      </div>
-      <div class="info">
-        <p>{translator.t("ABOUT_P1")}</p></div>
-      <div class="description">
-        <p>{translator.t("ABOUT_P2")}</p>
-        <p>{translator.t("ABOUT_P3")}</p>
-      </div>
-      <div class="bg-layer"></div>
+  <div class="grid-container">
+    <!-- <p class="description">Hadassa Medeiros</p> -->
+    <div class="icons">
+      <a
+        class="repo-link"
+        href="https://github.com/hadassa-medeiros"
+        target="_blank"
+      >
+        GitHub
+      </a>
     </div>
-  </body>
+    <div class="bg-layer"></div>
+  </div>
 
   <style lang="scss">
     .bg-layer {
       position: fixed;
       inset: 0;
       z-index: -1;
-      opacity: 0.4;
-      background: url("/src/assets/images/background-collage.png") center/cover no-repeat
+      opacity: 0.04;
+      pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 200px;
     }
-  .grid-container {
-    height: 100dvh;
-    padding: 2em;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-    justify-content: center;
-    // grid-template-areas: 
-    // "title . ."
-    // "icons . ."
-    // ". info info"
-    // "..."
-    // ". description .";
-    // grid-template-columns: repeat(3, 1fr);
-    // grid-template-rows: 50% auto auto auto;
-    row-gap: 1em
-  }
-  .icons {
-    grid-area: icons;
-    display: flex;
-    align-items: center;
-    gap: 0.75em;
-  }
-  .repo-link {
-    font-family: "Lora", serif;
-  }
-  .repo-link:hover {
-    text-decoration: underline;
-    text-underline-offset: 3px;
-  }
-  .description {
-    grid-area: description;
-    max-width: 500px
-  }
-  .info {
-    grid-area: info;
-  }
-  .title {
-    grid-area: title;
 
-    @media (max-width: 768px) {
-      font-size: 2em
+    .grid-container {
+      width: 100%;
+      flex: 1 1 auto;
+      min-height: 100%;
+      padding: 3em;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto 1fr;
+      grid-template-areas:
+        ".           .           ."
+        ".           .           description"
+        "icons       icons           .";
+      row-gap: 1em;
+      justify-items: start;
+      text-align: left;
     }
-    
-    // text-align: end;
-    // align-self: end;
-  }
+
+    .title {
+      grid-area: title;
+      @media (max-width: 768px) {
+        font-size: 2em;
+      }
+    }
+
+    .info {
+      grid-area: info;
+    }
+
+    .description {
+      grid-area: description;
+      max-width: 500px;
+    }
+    .icons {
+      grid-area: icons;
+      display: flex;
+      align-items: center;
+      gap: 0.75em;
+    }
+
+    .repo-link {
+      font-family: "Lora", serif;
+      &:hover {
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+    }
   </style>
 </BaseLayout>
