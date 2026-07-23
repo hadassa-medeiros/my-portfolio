@@ -1,13 +1,20 @@
 ---
 import Translator from "../lib/translator";
+import { languages, slugMap, reverseSlugMap } from "../lib/routes";
+import type { Languages, Slug } from "../lib/routes";
 
-const { lang, aboutMe, otherLang, otherSlug } = Astro.props;
+const { lang, slug } = Astro.props as { lang: Languages; slug?: Slug };
 const translator = new Translator(lang);
+
+const page = slug ? reverseSlugMap[slug] : undefined;
+const langHref = (target: Languages) => {
+  const localizedSlug = page ? slugMap[target][page] : "";
+  return localizedSlug ? `/${target}/${localizedSlug}` : `/${target}`;
+};
 ---
 
 <header>
   <nav>
-    <p>{otherSlug}</p>
     <ul>
       <button>
         <a class="langSwitcher" href={`/${lang}`}>
@@ -15,9 +22,20 @@ const translator = new Translator(lang);
         </a>
       </button>
       <button>
-        <a class="langSwitcher" href={`/${otherLang}/${otherSlug}`}>
-          {otherLang} | {lang}
-        </a>
+        {
+          languages.map((target, i) => (
+            <Fragment>
+              {i > 0 && <span aria-hidden="true"> | </span>}
+              <a
+                class="langSwitcher"
+                href={langHref(target)}
+                aria-current={target === lang ? "page" : undefined}
+              >
+                {target}
+              </a>
+            </Fragment>
+          ))
+        }
       </button>
       <!-- <button>
         <a href={`/${lang}/projects`}>
