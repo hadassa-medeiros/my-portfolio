@@ -1,6 +1,12 @@
-export type Languages = "en" | "es";
+export const languages = ["ca", "en", "es"] as const;
+export type Languages = (typeof languages)[number];
 
 export const slugMap = {
+  ca: {
+    projects: "projectes",
+    project: "projecte",
+    about: "sobre-mi",
+  },
   en: {
     projects: "projects",
     project: "project",
@@ -25,7 +31,7 @@ export type Parameters = {
 export const reverseSlugMap: Record<Slug, Page> = {} as Record<Slug, Page>;
 
 for (const page of Object.keys(slugMap.en) as Page[]) {
-  for (const lang of ["en", "es"] as Languages[]) {
+  for (const lang of languages) {
     const slug = slugMap[lang][page];
     reverseSlugMap[slug] = page;
   }

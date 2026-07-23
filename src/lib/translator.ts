@@ -20,6 +20,21 @@ class Translator {
   private value: Languages;
 
   private translatables: Translatable = {
+    ca: {
+      ABOUT: "sobre mi",
+      PROJECTS: "projectes",
+      ABOUT_P1: "desenvolupadora web full-stack (front-end focus)",
+      LOCATION: "Barcelona, Spain",
+      ABOUT_P2: "Desenvolupadora full stack, amb focus en front-end, consciència d'UX, formació acadèmica en Arquitectura i Urbanisme, especialitzada en l'stack MERN.",
+      ABOUT_P3: "M'agrada que les coses flueixin i siguin senzilles.",
+
+      PLACEHOLDER_MSG: "en progrés",
+
+      PROJECT_1_NAME: "Momentum workout tracker",
+      PROJECT_2_NAME: "plataforma de gestió de formularis",
+      PROJECT_3_NAME: "extensió de gestió de models d'edificis per a Revit",
+      PROJECT_4_NAME: "biblioteca de components personalitzats",
+    },
     es: {
       ABOUT: "sobre mí",
       PROJECTS: "proyectos",
